@@ -11,7 +11,6 @@ exportcredentials.cfg
 
 Mono / C
 .mono/
-data/
 mono_crash..json
 
 IDE / sistema
