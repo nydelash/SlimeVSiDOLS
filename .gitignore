@@ -1,0 +1,21 @@
+Godot 4+
+.godot/
+.nomedia
+
+Godot generated/imported data
+.import/
+export.cfg
+exportcredentials.cfg
+*.tmp
+*.translation
+
+Mono / C
+.mono/
+data/
+mono_crash..json
+
+IDE / sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

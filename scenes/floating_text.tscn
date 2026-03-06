@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://coip1c5fubj6o"]
+
+[ext_resource type="Script" uid="uid://dv12bq3d88upl" path="res://scripts/floating_text.gd" id="1_45khh"]
+
+[node name="FloatingText" type="Label" unique_id=1944927906]
+theme_override_colors/font_color = Color(1, 1, 0.27058825, 1)
+theme_override_font_sizes/font_size = 24
+text = "+10"
+script = ExtResource("1_45khh")
