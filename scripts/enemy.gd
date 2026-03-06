@@ -30,6 +30,8 @@ func recibir_daño(dmg):
 
 
 func morir():
+	var wave_manager = get_tree().current_scene.get_node("WaveManager")
+	wave_manager.enemigo_muerto()
 
 	var main = get_tree().current_scene
 
@@ -43,6 +45,7 @@ func morir():
 	texto.text = "+" + str(recompensa)
 
 	get_parent().queue_free()
+	
 
 func _process(delta):
 

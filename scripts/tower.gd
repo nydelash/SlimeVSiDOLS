@@ -92,6 +92,10 @@ func activar_preview():
 	$Range.monitoring = false
 	$Range.monitorable = false
 
+	# limpiar cualquier enemigo detectado
+	enemigos_en_rango.clear()
+
+	objetivo = null
 
 # ==============================
 # ENEMIGO ENTRA AL RANGO
@@ -99,7 +103,6 @@ func activar_preview():
 
 func _on_range_body_entered(body):
 
-	# evitar que el preview detecte enemigos
 	if es_preview:
 		return
 
@@ -114,8 +117,9 @@ func _on_range_body_entered(body):
 
 func _on_range_body_exited(body):
 
-	if enemigos_en_rango.has(body):
+	if es_preview:
+		return
 
-		print("enemigo salió del rango")
+	print("enemigo salió del rango")
 
-		enemigos_en_rango.erase(body)
+	enemigos_en_rango.erase(body)

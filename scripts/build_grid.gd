@@ -18,12 +18,27 @@ func _ready():
 func _input(event):
 
 	if event is InputEventMouseButton and event.pressed:
+
+		# CLICK IZQUIERDO = colocar torre
 		if event.button_index == MOUSE_BUTTON_LEFT:
 
 			var mouse_pos = get_global_mouse_position()
 			var cell = local_to_map(to_local(mouse_pos))
 
 			place_tower(cell)
+
+		# CLICK DERECHO = cancelar construcción
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+
+			cancelar_colocacion()
+
+func cancelar_colocacion():
+
+	if preview_torre:
+		preview_torre.queue_free()
+
+	preview_torre = null
+	torre_seleccionada = null
 
 
 func place_tower(cell):
@@ -77,6 +92,9 @@ func crear_preview():
 		return
 
 	preview_torre = torre_seleccionada.instantiate()
+
+	# ACTIVAR MODO GHOST
+	preview_torre.activar_preview()
 
 	get_node("/root/Main/Towers").add_child(preview_torre)
 

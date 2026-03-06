@@ -15,4 +15,9 @@ func recibir_daño(cantidad):
 
 
 func game_over():
-	print("GAME OVER")
+
+	var wave_manager = get_tree().current_scene.get_node("WaveManager")
+
+	wave_manager.juego_terminado = true
+
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
