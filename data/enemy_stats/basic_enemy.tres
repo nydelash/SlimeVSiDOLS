@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_b237v")
 nombre = "Godot"
-hp = 10
-velocidad = 250.0
+hp = 5
+velocidad = 100.0
 metadata/_custom_type_script = "uid://dr6pdyvieiys5"

@@ -87,7 +87,10 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -80.0
+offset_left = 1.0
+offset_top = -89.0
+offset_right = 1.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -98,10 +101,10 @@ offset_bottom = 8.0
 text = "Torre Basica $25"
 
 [node name="MoneyLabel" type="Label" parent="UI" unique_id=2116394214]
-offset_left = 926.0
-offset_top = 35.0
-offset_right = 1081.0
-offset_bottom = 72.20007
+offset_left = 971.0
+offset_top = 340.0
+offset_right = 1126.0
+offset_bottom = 377.20007
 theme = SubResource("Theme_q8u5g")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.88618505, 0.5232752, 0.8581026, 0)
@@ -111,27 +114,56 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_lhr70")
 text = "Dinero: 100"
 
 [node name="BaseHP" type="Label" parent="UI" unique_id=97388433]
-offset_left = 1024.0
-offset_top = 255.00002
-offset_right = 1114.0
-offset_bottom = 278.0
+offset_left = 1025.0
+offset_top = 253.00002
+offset_right = 1115.0
+offset_bottom = 276.0
 scale = Vector2(1.3151606, 2.0816884)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Base HP: 10"
 
 [node name="WaveLabel" type="Label" parent="UI" unique_id=1955868496]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 29.0
+offset_top = 451.0
+offset_right = 114.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Wave: 0/10"
 
 [node name="EnemiesLabel" type="Label" parent="UI" unique_id=2049575019]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 29.0
+offset_top = 475.0
+offset_right = 112.0
+offset_bottom = 498.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 text = "Enemies: 0"
 
 [node name="NextWaveButton" type="Button" parent="UI" unique_id=1346415854]
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 11.0
+offset_top = 502.0
+offset_right = 135.0
+offset_bottom = 533.0
 text = "Siguiente wave"
+
+[node name="NextWaveTimerLabel" type="Label" parent="UI" unique_id=398282530]
+offset_left = 323.0
+offset_top = 2.0
+offset_right = 794.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Next wave in: 0"
+
+[node name="FireEssenceLabel" type="Label" parent="UI" unique_id=643656283]
+offset_left = 971.0
+offset_top = 372.0
+offset_right = 1139.0
+offset_bottom = 406.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "Fire Essence: 0"
 
 [connection signal="pressed" from="UI/TowerBar/Tower1Button" to="." method="_on_tower_1_button_pressed"]
 [connection signal="pressed" from="UI/NextWaveButton" to="WaveManager" method="_on_next_wave_button_pressed"]

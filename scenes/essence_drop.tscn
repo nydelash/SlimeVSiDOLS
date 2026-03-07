@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://xx8ydhohfhlj"]
+
+[ext_resource type="Script" uid="uid://baxfccfrllhjy" path="res://scripts/essence_drop.gd" id="1_eafdn"]
+[ext_resource type="Texture2D" uid="uid://b10lmjd5m6ulf" path="res://assets/sprites/fire_essence.png" id="2_5d1qc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8qwsa"]
+
+[node name="EssenceDrop" type="Node2D" unique_id=1751910924]
+script = ExtResource("1_eafdn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1720701616]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_5d1qc")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1010040101]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=173704557]
+shape = SubResource("CircleShape2D_8qwsa")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

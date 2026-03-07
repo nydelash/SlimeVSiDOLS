@@ -14,21 +14,42 @@ var wave_en_progreso = false
 
 @onready var wave_label = get_node("/root/Main/UI/WaveLabel")
 @onready var enemies_label = get_node("/root/Main/UI/EnemiesLabel")
+@onready var next_wave_label = get_tree().current_scene.get_node("/root/Main/UI/NextWaveTimerLabel")
 
+func cuenta_regresiva():
 
+	for i in range(tiempo_entre_waves, 0, -1):
+
+		next_wave_label.text = "Next wave in: " + str(i)
+
+		await get_tree().create_timer(1).timeout
+
+	next_wave_label.text = "Next wave in: 0"
+
+func cuenta_regresiva_inicial():
+
+	for i in range(tiempo_inicial, 0, -1):
+
+		next_wave_label.text = "Next wave in: " + str(i)
+
+		await get_tree().create_timer(1).timeout
+
+	next_wave_label.text = "Next wave in: 0"
+	
 func _ready():
 
 	actualizar_ui()
 
 	print("Preparación inicial...")
 
-	await get_tree().create_timer(tiempo_inicial).timeout
+	await cuenta_regresiva_inicial()
 
 	iniciar_wave()
 
 
 
 func iniciar_wave():
+	next_wave_label.text = ""
 	
 	if juego_terminado:
 		return
@@ -51,8 +72,8 @@ func iniciar_wave():
 
 
 func enemigo_muerto():
-	
-	if juego_terminado:
+
+	if enemigos_restantes <= 0:
 		return
 
 	enemigos_restantes -= 1
@@ -61,11 +82,12 @@ func enemigo_muerto():
 
 	if enemigos_restantes <= 0:
 
+		enemigos_restantes = 0
 		wave_en_progreso = false
 
 		print("Wave completada")
 
-		await get_tree().create_timer(tiempo_entre_waves).timeout
+		await cuenta_regresiva()
 
 		iniciar_wave()
 

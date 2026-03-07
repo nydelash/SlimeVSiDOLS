@@ -31,11 +31,14 @@ func spawn_enemy(wave):
 	path.add_child(path_follow)
 
 	var enemigo = enemy_scene.instantiate()
+	enemigo.stats = enemigo.stats.duplicate()
 
 	# escalar estadísticas por wave
 	if enemigo.stats:
-		enemigo.stats.hp += wave * 5
-		enemigo.stats.velocidad += wave * 2
+		enemigo.stats.hp += wave * 2
+		enemigo.stats.velocidad *= 1.05
+		enemigo.stats.velocidad = clamp(enemigo.stats.velocidad, 0, 250)
+		print("velocidad enemigo:", enemigo.stats.velocidad)
 
 	path_follow.add_child(enemigo)
 
