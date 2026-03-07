@@ -18,5 +18,29 @@ func actualizar_ui():
 
 
 
-func _on_tower_1_button_pressed():
-	$BuildGrid.torre_seleccionada = preload("res://scenes/tower.tscn")
+#func _on_tower1_button_pressed():
+#	var build_grid = get_node("BuildGrid")
+#	build_grid.torre_seleccionada = preload("res://scenes/towers/tower.tscn")
+#	print("basic slime seleccionado")
+
+
+#func _on_tower2_button_pressed():
+#	var build_grid = get_node("BuildGrid")
+#	build_grid.torre_seleccionada = preload("res://scenes/towers/fire_tower.tscn")
+#	print("fire slime seleccionado")
+
+
+func _on_tower_1_button_pressed() -> void:
+	var build_grid = get_node("BuildGrid")
+
+	build_grid.torre_seleccionada = preload("res://scenes/towers/tower.tscn")
+
+	print("basic slime seleccionado")
+
+
+func _on_tower_2_button_pressed() -> void:
+	var build_grid = get_node("BuildGrid")
+
+	build_grid.torre_seleccionada = preload("res://scenes/towers/fire_tower.tscn")
+
+	print("fire slime seleccionado")

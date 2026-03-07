@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://cda485ohpxbco"]
 
 [ext_resource type="Texture2D" uid="uid://c3brwk7glefeg" path="res://assets/sprites/camino.png" id="1_c01mt"]
-[ext_resource type="PackedScene" uid="uid://bl53bx0h71acg" path="res://enemies/enemy.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://bl53bx0h71acg" path="res://scenes/enemies/enemy.tscn" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://dnok7sogg8y3q" path="res://scripts/main.gd" id="1_q8u5g"]
 [ext_resource type="Script" uid="uid://d2jqpmllirrom" path="res://scripts/enemy_spawner.gd" id="1_rvslj"]
 [ext_resource type="Texture2D" uid="uid://drmbsjwjt57uw" path="res://assets/sprites/terreno.png" id="2_nxtc6"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://c1ifi58ka3jdh" path="res://scripts/base.gd" id="4_vcsgt"]
 [ext_resource type="Texture2D" uid="uid://cmkcfu3e75q6h" path="res://assets/sprites/laboratorio.png" id="5_c01mt"]
 [ext_resource type="Script" uid="uid://fflim2vdudvd" path="res://scripts/wave_manager.gd" id="9_q8u5g"]
+[ext_resource type="Texture2D" uid="uid://bb5l4usvajwqe" path="res://assets/sprites/SlimeVerde.png" id="10_wp0k4"]
+[ext_resource type="Texture2D" uid="uid://ddgfj7qsetu4y" path="res://assets/sprites/Slime_Fuego.png" id="11_bjd11"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c01mt"]
 texture = ExtResource("1_c01mt")
@@ -36,6 +38,26 @@ _data = {
 "points": PackedVector2Array(-77.439995, -400.51, 0, 0, 4, 224, 0, 0, 0, 0, 384, 223, 0, 0, 0, 0, 384, 415, 0, 0, 0, 0, 705, 415, 0, 0, 0, 0, 705, 221, 0, 0, 0, 0, 1009, 221)
 }
 point_count = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wp0k4"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjd11"]
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="Theme" id="Theme_q8u5g"]
 
@@ -94,11 +116,74 @@ offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Tower1Button" type="Button" parent="UI/TowerBar" unique_id=1625239969]
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/TowerBar" unique_id=1563026502]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Torre Basica $25"
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Tower1Button" type="Button" parent="UI/TowerBar/HBoxContainer" unique_id=1625239969]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_wp0k4")
+icon_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="UI/TowerBar/HBoxContainer/Tower1Button" unique_id=927934872]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("10_wp0k4")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/TowerBar/HBoxContainer/Tower1Button" unique_id=355911407]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -28.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/font_size = 20
+text = "$25"
+
+[node name="Tower2Button" type="Button" parent="UI/TowerBar/HBoxContainer" unique_id=204814639]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_bjd11")
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="UI/TowerBar/HBoxContainer/Tower2Button" unique_id=2071978416]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_bjd11")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/TowerBar/HBoxContainer/Tower2Button" unique_id=1966347664]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_right = 63.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "$25 🔥1"
 
 [node name="MoneyLabel" type="Label" parent="UI" unique_id=2116394214]
 offset_left = 971.0
@@ -165,5 +250,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 24
 text = "Fire Essence: 0"
 
-[connection signal="pressed" from="UI/TowerBar/Tower1Button" to="." method="_on_tower_1_button_pressed"]
+[connection signal="pressed" from="UI/TowerBar/HBoxContainer/Tower1Button" to="." method="_on_tower_1_button_pressed"]
+[connection signal="pressed" from="UI/TowerBar/HBoxContainer/Tower2Button" to="." method="_on_tower_2_button_pressed"]
 [connection signal="pressed" from="UI/NextWaveButton" to="WaveManager" method="_on_next_wave_button_pressed"]

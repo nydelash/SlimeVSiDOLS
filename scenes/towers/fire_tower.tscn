@@ -1,18 +1,18 @@
-[gd_scene format=3 uid="uid://dvy5mhj2j8kd1"]
+[gd_scene format=3 uid="uid://dym86jtpvxw32"]
 
-[ext_resource type="Script" uid="uid://ekqfg3l8bccw" path="res://scripts/tower.gd" id="1_ay4al"]
-[ext_resource type="PackedScene" uid="uid://b2ikn7g5re75t" path="res://scenes/projectile.tscn" id="2_qrbg1"]
-[ext_resource type="Texture2D" uid="uid://bb5l4usvajwqe" path="res://assets/sprites/SlimeVerde.png" id="3_ktxwe"]
+[ext_resource type="Script" uid="uid://ekqfg3l8bccw" path="res://scripts/tower.gd" id="1_bqpdm"]
+[ext_resource type="PackedScene" uid="uid://b2ikn7g5re75t" path="res://scenes/projectiles/projectile.tscn" id="2_2m8qx"]
+[ext_resource type="Texture2D" uid="uid://ddgfj7qsetu4y" path="res://assets/sprites/Slime_Fuego.png" id="3_bqpdm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qrbg1"]
 radius = 200.0
 
 [node name="Tower" type="Node2D" unique_id=1596438405]
-script = ExtResource("1_ay4al")
-projectile_scene = ExtResource("2_qrbg1")
+script = ExtResource("1_bqpdm")
+projectile_scene = ExtResource("2_2m8qx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780479924]
-texture = ExtResource("3_ktxwe")
+texture = ExtResource("3_bqpdm")
 
 [node name="Range" type="Area2D" parent="." unique_id=1385976398]
 

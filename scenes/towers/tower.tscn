@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dvy5mhj2j8kd1"]
+
+[ext_resource type="Script" uid="uid://ekqfg3l8bccw" path="res://scripts/tower.gd" id="1_ay4al"]
+[ext_resource type="PackedScene" uid="uid://b2ikn7g5re75t" path="res://scenes/projectiles/projectile.tscn" id="2_qrbg1"]
+[ext_resource type="Texture2D" uid="uid://bb5l4usvajwqe" path="res://assets/sprites/SlimeVerde.png" id="3_ktxwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qrbg1"]
+radius = 200.0
+
+[node name="Tower" type="Node2D" unique_id=1596438405]
+script = ExtResource("1_ay4al")
+projectile_scene = ExtResource("2_qrbg1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1780479924]
+texture = ExtResource("3_ktxwe")
+
+[node name="Range" type="Area2D" parent="." unique_id=1385976398]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range" unique_id=1895146871]
+shape = SubResource("CircleShape2D_qrbg1")
+
+[connection signal="body_entered" from="Range" to="." method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="." method="_on_range_body_exited"]
